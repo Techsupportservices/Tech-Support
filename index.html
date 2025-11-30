@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--add emogi 😊 for the search like a blue paper plane -->
+    <title>Tech Support Hub | Banking & Crypto Solutions</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨🏼‍💻</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 10px 0;
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        
+        .total-issues {
+            text-align: center;
+            margin: 40px 0;
+            padding: 25px 30px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            border: 2px solid rgba(245, 158, 11, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .total-issues::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #f59e0b, #fbbf24);
+        }
+        
+        .total-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 80px 0 40px;
+            flex-wrap: wrap;
+        }
+        
+        .support-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .support-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: transform 0.5s ease;
+        }
+        
+        .support-button:hover::before {
+            transform: scale(1.05);
+        }
+        
+        .bank-button {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+        }
+        
+        .bank-button::before {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+        }
+        
+        .crypto-button {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+        }
+        
+        .crypto-button::before {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%);
+        }
+        
+        .support-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .support-button i {
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+        
+        /* Team section */
+        .team-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid #38bdf8;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #f8fafc;
+        }
+        
+        .member-role {
+            color: #38bdf8;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials section */
+        .testimonials-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: left;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: #f8fafc;
+        }
+        
+        .author-info p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(56, 189, 248, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .animation-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 20px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+            color: #cbd5e1;
+        }
+        
+        .cookie-text h3 {
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .accept-btn {
+            background: #38bdf8;
+            color: white;
+        }
+        
+        .accept-btn:hover {
+            background: #0ea5e9;
+        }
+        
+        .decline-btn {
+            background: rgba(100, 116, 139, 0.3);
+            color: #cbd5e1;
+        }
+        
+        .decline-btn:hover {
+            background: rgba(100, 116, 139, 0.5);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-container {
+                gap: 20px;
+            }
+            
+            .stat-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .buttons-container {
+                gap: 20px;
+            }
+            
+            .support-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cookie-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animation-container" id="animationContainer"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Expert Tech Support</h1>
+            <p class="subtitle">We've successfully resolved thousands of banking and cryptocurrency issues with our specialized expertise and dedicated support team.</p>
+        </header>
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="stat-number" id="bankCases">12,847</div>
+                <div class="stat-label">Banking Issues Resolved</div>
+                <span class="badge">+327 this month</span>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                <div class="stat-number" id="cryptoCases">8,932</div>
+                <div class="stat-label">Crypto Issues Resolved</div>
+                <span class="badge">+215 this month</span>
+            </div>
+        </div>
+        
+        <div class="total-issues">
+            <h2>Total Issues Resolved</h2>
+            <div class="total-number" id="totalCases">21,779</div>
+            <p>Our team has successfully resolved over 21,000 banking and cryptocurrency issues for our clients.</p>
+        </div>
+        
+        <div class="team-section">
+            <h2 class="section-title">Our Expert Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Johnson" class="member-photo">
+                    <h3 class="member-name">Sarah Johnson</h3>
+                    <p class="member-role">Banking Support Specialist</p>
+                    <p class="member-bio">With over 8 years in financial tech support, Sarah specializes in resolving complex banking system issues.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Chen" class="member-photo">
+                    <h3 class="member-name">Michael Chen</h3>
+                    <p class="member-role">Crypto Technical Lead</p>
+                    <p class="member-bio">Michael is a blockchain expert who has resolved over 5,000 crypto-related technical issues.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Emma Rodriguez" class="member-photo">
+                    <h3 class="member-name">Emma Rodriguez</h3>
+                    <p class="member-role">Client Success Manager</p>
+                    <p class="member-bio">Emma ensures our clients receive the best possible experience and coordinates complex case resolutions.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonials-section">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">"I had a major issue with a bank transfer that was stuck for days. The team resolved it in just a few hours. Amazing service!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jennifer L." class="author-photo">
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <p>Resolved: Banking Transaction Issue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">"My cryptocurrency wallet was compromised, and I thought I lost everything. The support team helped me secure my assets and recover most of them."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David K." class="author-photo">
+                        <div class="author-info">
+                            <h4>David K.</h4>
+                            <p>Resolved: Crypto Security Issue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <p class="testimonial-text">"The team helped me navigate a complex issue between my bank and a crypto exchange. Professional, patient, and highly effective."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maria S." class="author-photo">
+                        <div class="author-info">
+                            <h4>Maria S.</h4>
+                            <p>Resolved: Bank-Crypto Integration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons-container">
+            <a href="https://fdicservice.pythonanywhere.com/" class="support-button bank-button" target="_blank">
+                <i class="fas fa-landmark"></i> Issue with Bank?
+            </a>
+            
+            <a href="https://coinnodes.pythonanywhere.com" class="support-button crypto-button" target="_blank">
+                <i class="fab fa-bitcoin"></i> Issue with Crypto?
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 Tech Support Hub. All rights reserved. We help resolve banking and cryptocurrency technical issues.</p>
+    </footer>
+    
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>We Use Cookies</h3>
+                <p>This website uses cookies to ensure you get the best experience. We store session information to personalize your support experience and track case progress.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept-btn" id="acceptCookies">Accept All</button>
+                <button class="cookie-btn decline-btn" id="declineCookies">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animated background elements
+        const animationContainer = document.getElementById('animationContainer');
+        
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
+            
+            // Random size and position
+            const size = Math.random() * 100 + 20;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.left = `${left}%`;
+            element.style.top = `${top}%`;
+            
+            // Random animation duration
+            const duration = Math.random() * 20 + 10;
+            element.style.animationDuration = `${duration}s`;
+            
+            animationContainer.appendChild(element);
+        }
+        
+        // Simple counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 20);
+        }
+        
+        // Cookie consent functionality
+        const cookieConsent = document.getElementById('cookieConsent');
+        const acceptCookies = document.getElementById('acceptCookies');
+        const declineCookies = document.getElementById('declineCookies');
+        
+        // Check if user has already made a choice
+        if (!localStorage.getItem('cookiesAccepted')) {
+            // Show cookie consent after a delay
+            setTimeout(() => {
+                cookieConsent.style.display = 'block';
+            }, 1000);
+        }
+        
+        // Handle cookie acceptance
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            localStorage.setItem('cookiesDeclined', 'false');
+            cookieConsent.style.display = 'none';
+            
+            // Set a session cookie
+            document.cookie = "userSession=active; path=/; max-age=3600"; // 1 hour session
+        });
+        
+        // Handle cookie decline
+        declineCookies.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'false');
+            localStorage.setItem('cookiesDeclined', 'true');
+            cookieConsent.style.display = 'none';
+        });
+        
+        // Start animation when page loads
+        window.addEventListener('load', () => {
+            animateCounter(document.getElementById('bankCases'), 12847);
+            animateCounter(document.getElementById('cryptoCases'), 8932);
+            animateCounter(document.getElementById('totalCases'), 21779);
+        });
+    </script>
+</body>
+</html>
