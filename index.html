@@ -1,693 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--add emogi 😊 for the search like a blue paper plane -->
-    <title>Tech Support Hub | Banking & Crypto Solutions</title>
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨🏼‍💻</text></svg>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            z-index: -1;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #60a5fa, #38bdf8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat-card {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            width: 280px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #38bdf8;
-        }
-        
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 700;
-            margin: 10px 0;
-            background: linear-gradient(to right, #60a5fa, #38bdf8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            font-weight: 500;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.2);
-            color: #38bdf8;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-        
-        .total-issues {
-            text-align: center;
-            margin: 40px 0;
-            padding: 25px 30px;
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 16px;
-            border: 2px solid rgba(245, 158, 11, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .total-issues::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #f59e0b, #fbbf24);
-        }
-        
-        .total-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #f59e0b, #fbbf24);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 10px;
-        }
-        
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 80px 0 40px;
-            flex-wrap: wrap;
-        }
-        
-        .support-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 35px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            width: 280px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .support-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            transition: transform 0.5s ease;
-        }
-        
-        .support-button:hover::before {
-            transform: scale(1.05);
-        }
-        
-        .bank-button {
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            color: white;
-        }
-        
-        .bank-button::before {
-            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-        }
-        
-        .crypto-button {
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: white;
-        }
-        
-        .crypto-button::before {
-            background: linear-gradient(135deg, #047857 0%, #059669 100%);
-        }
-        
-        .support-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .support-button i {
-            margin-right: 12px;
-            font-size: 1.5rem;
-        }
-        
-        /* Team section */
-        .team-section {
-            margin: 80px 0;
-            text-align: center;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            background: linear-gradient(to right, #60a5fa, #38bdf8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-        
-        .member-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 3px solid #38bdf8;
-        }
-        
-        .member-name {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: #f8fafc;
-        }
-        
-        .member-role {
-            color: #38bdf8;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        
-        .member-bio {
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-        
-        /* Testimonials section */
-        .testimonials-section {
-            margin: 80px 0;
-            text-align: center;
-        }
-        
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: left;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            position: relative;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #e2e8f0;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-            color: #f8fafc;
-        }
-        
-        .author-info p {
-            color: #cbd5e1;
-            font-size: 0.9rem;
-        }
-        
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 2rem;
-            color: rgba(56, 189, 248, 0.3);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .animation-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-        
-        .floating-element {
-            position: absolute;
-            background: rgba(56, 189, 248, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        /* Cookie Consent Banner */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            padding: 20px;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            display: none;
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(56, 189, 248, 0.3);
-        }
-        
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-            color: #cbd5e1;
-        }
-        
-        .cookie-text h3 {
-            color: #38bdf8;
-            margin-bottom: 5px;
-        }
-        
-        .cookie-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .cookie-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .accept-btn {
-            background: #38bdf8;
-            color: white;
-        }
-        
-        .accept-btn:hover {
-            background: #0ea5e9;
-        }
-        
-        .decline-btn {
-            background: rgba(100, 116, 139, 0.3);
-            color: #cbd5e1;
-        }
-        
-        .decline-btn:hover {
-            background: rgba(100, 116, 139, 0.5);
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-            100% {
-                transform: translateY(0) rotate(360deg);
-            }
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .stats-container {
-                gap: 20px;
-            }
-            
-            .stat-card {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .buttons-container {
-                gap: 20px;
-            }
-            
-            .support-button {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .cookie-buttons {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chris Hall | Senior Financial Advisor | Hall Financial Advisors</title>
+  <meta name="description" content="Chris Hall, CPFA™, CEPA™ - Top-ranked financial advisor helping families and businesses build lasting legacies."/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #004b8d;
+      --primary-dark: #003366;
+      --accent: #ffd700;
+      --light: #f8f9fa;
+      --gray: #e9ecef;
+      --dark: #222;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #0066cc 100%);
+      color: white;
+      text-align: center;
+      padding: 120px 20px 90px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.12) 0%, transparent 60%);
+      animation: pulse 18s infinite;
+    }
+    header h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.6rem;
+      opacity: 0.95;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--primary-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+    }
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.15rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -8px;
+      left: 0;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1101;
+    }
+    .hamburger span {
+      width: 32px;
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(9px, 9px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 340px;
+      height: 100%;
+      background: var(--primary-dark);
+      padding: 100px 30px 40px;
+      transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 1100;
+      overflow-y: auto;
+    }
+    .mobile-menu.active {
+      right: 0;
+    }
+    .mobile-menu a {
+      display: block;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 35px 0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s;
+      z-index: 1099;
+    }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 20px;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1.2s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      color: var(--primary);
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 100px;
+      height: 5px;
+      background: var(--accent);
+      display: block;
+      margin: 20px auto 0;
+      border-radius: 3px;
+    }
+
+    /* About Section */
+    .bio-img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 12px 40px rgba(0,75,141,0.3);
+      margin: 0 auto 40px;
+      display: block;
+      transition: all 0.5s ease;
+    }
+    .bio-img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Slideshow */
+    .slideshow {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      animation: slideFade 1.5s ease-in-out;
+    }
+    .slide.active {
+      display: block;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .slideshow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 16px 20px;
+      cursor: pointer;
+      font-size: 2rem;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .slideshow-btn:hover {
+      background: rgba(0,0,0,0.9);
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    /* Awards */
+    .awards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
+    }
+    .award-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 1px solid #eee;
+    }
+    .award-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0,75,141,0.2);
+      border-color: var(--primary);
+    }
+
+    /* Contact Form */
+    #contact form {
+      max-width: 750px;
+      margin: 50px auto;
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 16px;
+      margin: 12px 0 25px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: border 0.3s;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    #contact button {
+      background: var(--primary);
+      color: white;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.4s;
+      display: block;
+      margin: 0 auto;
+    }
+    #contact button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-4px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideFade { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.35; } }
+
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      header h1 { font-size: 2.8rem; }
+      header p { font-size: 1.3rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="animation-container" id="animationContainer"></div>
-    
-    <div class="container">
-        <header>
-            <h1>Expert Tech Support</h1>
-            <p class="subtitle">We've successfully resolved thousands of banking and cryptocurrency issues with our specialized expertise and dedicated support team.</p>
-        </header>
-        
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <div class="stat-number" id="bankCases">12,847</div>
-                <div class="stat-label">Banking Issues Resolved</div>
-                <span class="badge">+327 this month</span>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fab fa-bitcoin"></i>
-                </div>
-                <div class="stat-number" id="cryptoCases">8,932</div>
-                <div class="stat-label">Crypto Issues Resolved</div>
-                <span class="badge">+215 this month</span>
-            </div>
-        </div>
-        
-        <div class="total-issues">
-            <h2>Total Issues Resolved</h2>
-            <div class="total-number" id="totalCases">21,779</div>
-            <p>Our team has successfully resolved over 21,000 banking and cryptocurrency issues for our clients.</p>
-        </div>
-        
-        <div class="team-section">
-            <h2 class="section-title">Our Expert Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sarah Johnson" class="member-photo">
-                    <h3 class="member-name">Sarah Johnson</h3>
-                    <p class="member-role">Banking Support Specialist</p>
-                    <p class="member-bio">With over 8 years in financial tech support, Sarah specializes in resolving complex banking system issues.</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michael Chen" class="member-photo">
-                    <h3 class="member-name">Michael Chen</h3>
-                    <p class="member-role">Crypto Technical Lead</p>
-                    <p class="member-bio">Michael is a blockchain expert who has resolved over 5,000 crypto-related technical issues.</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Emma Rodriguez" class="member-photo">
-                    <h3 class="member-name">Emma Rodriguez</h3>
-                    <p class="member-role">Client Success Manager</p>
-                    <p class="member-bio">Emma ensures our clients receive the best possible experience and coordinates complex case resolutions.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="testimonials-section">
-            <h2 class="section-title">Client Testimonials</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                    <p class="testimonial-text">"I had a major issue with a bank transfer that was stuck for days. The team resolved it in just a few hours. Amazing service!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Jennifer L." class="author-photo">
-                        <div class="author-info">
-                            <h4>Jennifer L.</h4>
-                            <p>Resolved: Banking Transaction Issue</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                    <p class="testimonial-text">"My cryptocurrency wallet was compromised, and I thought I lost everything. The support team helped me secure my assets and recover most of them."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="David K." class="author-photo">
-                        <div class="author-info">
-                            <h4>David K.</h4>
-                            <p>Resolved: Crypto Security Issue</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                    <p class="testimonial-text">"The team helped me navigate a complex issue between my bank and a crypto exchange. Professional, patient, and highly effective."</p>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maria S." class="author-photo">
-                        <div class="author-info">
-                            <h4>Maria S.</h4>
-                            <p>Resolved: Bank-Crypto Integration</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="buttons-container">
-            <a href="https://fdicservice.pythonanywhere.com/" class="support-button bank-button" target="_blank">
-                <i class="fas fa-landmark"></i> Issue with Bank?
-            </a>
-            
-            <a href="https://coinnodes.pythonanywhere.com" class="support-button crypto-button" target="_blank">
-                <i class="fab fa-bitcoin"></i> Issue with Crypto?
-            </a>
-        </div>
-    </div>
-    
-    <footer>
-        <p>© 2023 Tech Support Hub. All rights reserved. We help resolve banking and cryptocurrency technical issues.</p>
-    </footer>
-    
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <h3>We Use Cookies</h3>
-                <p>This website uses cookies to ensure you get the best experience. We store session information to personalize your support experience and track case progress.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn accept-btn" id="acceptCookies">Accept All</button>
-                <button class="cookie-btn decline-btn" id="declineCookies">Decline</button>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        // Animated background elements
-        const animationContainer = document.getElementById('animationContainer');
-        
-        for (let i = 0; i < 15; i++) {
-            const element = document.createElement('div');
-            element.classList.add('floating-element');
-            
-            // Random size and position
-            const size = Math.random() * 100 + 20;
-            const left = Math.random() * 100;
-            const top = Math.random() * 100;
-            
-            element.style.width = `${size}px`;
-            element.style.height = `${size}px`;
-            element.style.left = `${left}%`;
-            element.style.top = `${top}%`;
-            
-            // Random animation duration
-            const duration = Math.random() * 20 + 10;
-            element.style.animationDuration = `${duration}s`;
-            
-            animationContainer.appendChild(element);
-        }
-        
-        // Simple counter animation for stats
-        function animateCounter(element, target) {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target.toLocaleString();
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 20);
-        }
-        
-        // Cookie consent functionality
-        const cookieConsent = document.getElementById('cookieConsent');
-        const acceptCookies = document.getElementById('acceptCookies');
-        const declineCookies = document.getElementById('declineCookies');
-        
-        // Check if user has already made a choice
-        if (!localStorage.getItem('cookiesAccepted')) {
-            // Show cookie consent after a delay
-            setTimeout(() => {
-                cookieConsent.style.display = 'block';
-            }, 1000);
-        }
-        
-        // Handle cookie acceptance
-        acceptCookies.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            localStorage.setItem('cookiesDeclined', 'false');
-            cookieConsent.style.display = 'none';
-            
-            // Set a session cookie
-            document.cookie = "userSession=active; path=/; max-age=3600"; // 1 hour session
+  <!-- Header -->
+  <header>
+    <h1>Chris Hall, CPFA™, CEPA™</h1>
+    <p>Founding Partner & CEO, Hall Financial Advisors</p>
+    <p>Senior Financial Advisor, Raymond James Financial Services</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#awards">Awards</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.hallfa.com/" target="_blank">Website</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#awards">Awards</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.hallfa.com/" target="_blank">Hall Financial Advisors</a>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Chris Hall</h2>
+      <div class="slideshow">
+        <div class="slide active">
+          <img src="https://www.hallfa.com/wp-content/uploads/2025/03/Barrons-1200-cover.png" alt="Chris Hall Professional Portrait">
+        </div>
+        <div class="slide">
+          <img src="https://www.hallfa.com/wp-content/uploads/2023/09/Chris_Hall_2023_WC-Event_7.jpg" alt="Chris Hall Portrait">
+        </div>
+        <div class="slide">
+          <img src="https://www.hallfa.com/wp-content/uploads/bb-plugin/cache/chris-hall-hall-financial-advisors-1536x960-panorama-62ccc40de36a8f8f2118bee8649ac9d2-gevw5fh4n2ub.jpg" alt="Chris Hall Headshot">
+        </div>
+        <button class="slideshow-btn prev">&#10094;</button>
+        <button class="slideshow-btn next">&#10095;</button>
+      </div>
+      <p>Chris Hall is a highly regarded financial advisor committed to delivering personalized strategies that help clients achieve financial security and build lasting legacies. With more than 26 years in the industry, he leads Hall Financial Advisors while serving as a Senior Advisor at Raymond James.</p>
+      <p>A graduate of The Ohio State University with dual majors in Business Administration, Chris holds advanced certifications including CPFA™ (Certified Plan Fiduciary Advisor) and CEPA™ (Certified Exit Planning Advisor), enabling expert guidance in fiduciary planning and business transitions.</p>
+      <p>Securities offered through Raymond James Financial Services, Inc., member FINRA/SIPC. Advisory services offered through Raymond James Financial Services Advisors, Inc. Hall Financial Advisors is independent of Raymond James.</p>
+    </div>
+  </section>
+
+  <!-- Current Projects Section (Elaborated) -->
+  <section id="projects" style="background: linear-gradient(135deg, #f0f4ff, #e6f0ff);">
+    <div class="container">
+      <h2>Current Projects</h2>
+      <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 45px rgba(0,75,141,0.2); transition: all 0.4s; padding: 50px 40px;">
+          <h3 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem;">Free Flow Trading Platform</h3>
+          <img src="https://freeflowtrading.pythonanywhere.com/static/images/free_flow.png" alt="Free Flow Trading Platform Screenshot" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 2.5rem;">
+          <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">
+            As Senior Financial Advisor at Soros Fund Management LLC through the Free Flow platform, I am leading the development and management of an innovative online trading and investment solution. Free Flow is a user-friendly platform designed to grow wealth through diversified markets including Forex (with leverage up to 1:500 and tight spreads), Commodities (like gold and oil), Stocks (global equities with commission-free trading), and Cryptocurrencies (over 500 coins including Bitcoin and Ethereum, with advanced security features).
+          </p>
+          <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem;">
+            Key features include expert-managed discretionary accounts, real-time market data, customized investment plans for maximum returns, monthly performance reports, and 24/7 support. The platform boasts over $500M in assets under management, 10,000+ active investors, and a proven track record of 45%+ average annual returns—all secured with bank-level encryption and regulated by international authorities.
+          </p>
+          <p style="font-size: 1.2rem; color: #555; margin-bottom: 3rem;">
+            Built with Python on a scalable infrastructure, Free Flow emphasizes transparency with no hidden fees, making it ideal for both novice and experienced investors. This project represents my commitment to leveraging technology for accessible, high-performance financial growth.
+          </p>
+          <a href="https://freeflowtrading.pythonanywhere.com" target="_blank" style="display: inline-block; background: var(--primary); color: white; padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 1.2rem; transition: all 0.3s; box-shadow: 0 6px 20px rgba(0,75,141,0.3);">
+            Visit Free Flow Trading Platform →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" style="background: var(--gray);">
+    <div class="container">
+      <h2>Professional Experience</h2>
+      <ul style="list-style: none; max-width: 800px; margin: 0 auto;">
+        <li style="margin: 25px 0; font-size: 1.3rem;"><strong>Founding Partner & CEO</strong> – Hall Financial Advisors (2004–Present)</li>
+        <li style="margin: 25px 0; font-size: 1.3rem;"><strong>Senior Financial Advisor</strong> – Raymond James Financial Services, Inc. (2021–Present)</li>
+        <li style="margin: 25px 0; font-size: 1.3rem;"><strong>Financial Advisor</strong> – Wells Fargo Advisors Financial Network, LLC (2004–2021)</li>
+        <li style="margin: 25px 0; font-size: 1.3rem;"><strong>Financial Advisor</strong> – Edward Jones (1999–2004)</li>
+        <li style="margin: 25px 0; font-size: 1.3rem;"><strong>Registered Representative</strong> – Signator Investors, Inc. (1999)</li>
+      </ul>
+      <p style="text-align: center; font-size: 1.2rem; color: #555; margin-top: 40px;">Serves clients in 43 U.S. states from offices in Parkersburg, WV and Marietta, OH.</p>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section id="awards">
+    <div class="container">
+      <h2>Awards & Recognition</h2>
+      <div class="awards">
+        <div class="award-card">
+          <h3>Forbes Best-in-State Wealth Advisors</h3>
+          <p>#1 in West Virginia (5th time – 2025)</p>
+          <p>Consistent top ranking for excellence in client service and results</p>
+        </div>
+        <div class="award-card">
+          <h3>Barron’s Top 100 Independent Advisors</h3>
+          <p>#56 Nationally (2025)</p>
+          <p>Recognized among the nation's elite independent advisors</p>
+        </div>
+        <div class="award-card">
+          <h3>Raymond James Chairman’s Council</h3>
+          <p>Member: 2022, 2023, 2024, 2025</p>
+          <p>For outstanding commitment to clients and integrity</p>
+        </div>
+        <div class="award-card">
+          <h3>Financial Times Top 400 Advisors</h3>
+          <p>Distinguished national recognition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="background: var(--gray);">
+    <div class="container">
+      <h2>Services Offered</h2>
+      <ul style="columns: 2; max-width: 1000px; margin: 0 auto; list-style: none; font-size: 1.2rem;">
+        <li style="margin: 20px 0;">Personalized Retirement Planning</li>
+        <li style="margin: 20px 0;">Wealth Management & Preservation</li>
+        <li style="margin: 20px 0;">Business Exit & Succession Planning (CEPA™)</li>
+        <li style="margin: 20px 0;">Fiduciary Advisory Services (CPFA™)</li>
+        <li style="margin: 20px 0;">Investment Portfolio Strategy</li>
+        <li style="margin: 20px 0;">Risk Management & Goal Alignment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">
+        <strong>Business Email:</strong> christopher.hall@consultant.com<br>
+        <strong>Personal Email:</strong> chris.hall2777@gmail.com<br>
+        <strong>LinkedIn:</strong> 
+        <a href="https://www.linkedin.com/in/chris-hall-56a367362" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">Chris Hall</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Hall Financial Advisors | Securities offered through Raymond James Financial Services, Inc. (Member FINRA/SIPC)<br>Not investment advice – always consult a professional.</p>
+  </footer>
+
+  <script>
+    // Hamburger Menu + Slide-in
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+    });
+
+    // Smooth scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
-        
-        // Handle cookie decline
-        declineCookies.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'false');
-            localStorage.setItem('cookiesDeclined', 'true');
-            cookieConsent.style.display = 'none';
-        });
-        
-        // Start animation when page loads
-        window.addEventListener('load', () => {
-            animateCounter(document.getElementById('bankCases'), 12847);
-            animateCounter(document.getElementById('cryptoCases'), 8932);
-            animateCounter(document.getElementById('totalCases'), 21779);
-        });
-    </script>
+      });
+    });
+
+    // Fade-in sections on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(n) {
+      slides.forEach(s => s.classList.remove('active'));
+      slideIndex = (n + slides.length) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }
+    document.querySelector('.prev')?.addEventListener('click', () => showSlide(slideIndex - 1));
+    document.querySelector('.next')?.addEventListener('click', () => showSlide(slideIndex + 1));
+    setInterval(() => showSlide(slideIndex + 1), 6000);
+
+    // Contact form (demo)
+    document.getElementById('contactForm')?.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Thank you! Your message has been sent (demo).');
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>
